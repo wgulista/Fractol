@@ -14,7 +14,7 @@ int			fractal_type(char **av)
 
 void		init_fractal(t_env *e, t_fractal *f)
 {
-	e->i_max = 50;
+	e->i_max = 100;
 	f->zr = 0.0;
 	f->zi = 0.0;
 	f->cr = 0.0;
