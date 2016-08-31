@@ -5,7 +5,7 @@ void		check_arg(int ac, char **av)
 	if (ac < 2 || ac > 2)
 		ft_usage_error();
 	if (!(ft_strequ("M", av[1]) || ft_strequ("J", av[1]) || \
-		ft_strequ("S", av[1])))
+		ft_strequ("B", av[1])))
 		ft_usage_error();
 }
 

@@ -1,4 +1,5 @@
 #include "../includes/fractol.h"
+#include <stdio.h>
 
 void		pixel_put_to_image(t_env *e, double x, double y)
 {
@@ -15,18 +16,17 @@ int 		get_color(int i)
 	int 	ret;
 
 	ret = 0;
-	ret += (unsigned char)(255 + (255 * sin((double)i/40))) << 16;
-	ret += (unsigned char)(255 - (125 * cos((double)i/80))) << 8;
-	ret += (unsigned char)(255 + (125 * cos((double)i/120)));
+	ret += (i >> 16) & 0xFF;
+	ret += (i >> 8) & 0xFF;
+	ret += (i) & 0xFF;
 	return (ret);
 }
 
 void		set_color(t_env *e, int color)
 {
-	color += e->theme;
-	e->color_rgba.le.r = color;
-	e->color_rgba.le.b = color;
-	e->color_rgba.le.g = color;
+	e->color_rgba.le.r = get_color(color) + e->theme;
+	e->color_rgba.le.b = get_color(color) + e->theme;
+	e->color_rgba.le.g = get_color(color) + e->theme;
 }
 
 double		scale_x(t_env *e, double x)

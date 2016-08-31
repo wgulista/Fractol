@@ -6,7 +6,7 @@ int			fractal_type(char **av)
 		return (1);
 	else if (ft_strequ("J", av[1]))
 		return (2);
-	else if (ft_strequ("S", av[1]))
+	else if (ft_strequ("B", av[1]))
 		return (3);
 	else
 		return (0);
@@ -41,10 +41,10 @@ void		init_fractal_area(t_env *e)
 	}
 	else if (e->fractal_type == 3)
 	{
-		e->x1 = 0;
-		e->y1 = 0;
-		e->x2 = 3;
-		e->y2 = 3;
+		e->x1 = -2.1;
+		e->y1 = 0.6;
+		e->x2 = -1.2;
+		e->y2 = 1.2;
 	}
 }
 

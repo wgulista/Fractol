@@ -119,7 +119,7 @@ void				set_color(t_env *e, int color);
 int 				get_color(int i);
 void				pixel_put_to_image(t_env *e, double x, double y);
 
-void				sierpinski_carpet(t_env *e, t_fractal *f);
+void				burnship(t_env *e, t_fractal *f);
 void				mandelbrot(t_env *e, t_fractal *f);
 void				julia(t_env *e, t_fractal *f);
 

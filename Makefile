@@ -16,7 +16,7 @@ NAME = fractol
 LIBFT = libft.a
 MINILIBX = minilibx.a
 SRC_NAME = main.c error.c env.c key_hook.c display.c move.c \
-			mandelbrot.c julia.c sierpinski.c mouse.c mouse_motion.c
+			mandelbrot.c julia.c burnship.c mouse.c mouse_motion.c
 OBJ_PATH = obj
 SRC_PATH = srcs
 

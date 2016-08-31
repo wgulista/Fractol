@@ -5,7 +5,7 @@ void		ft_usage_error()
 	ft_putendl("Usage: ./fractol M/J/S");
 	ft_putendl("M: Mandelbrot");
 	ft_putendl("J: Julia");
-	ft_putendl("S: Sierpinski Carpet");
+	ft_putendl("B: Burning Ship");
 	exit(1);
 }
 

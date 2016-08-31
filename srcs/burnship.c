@@ -1,6 +1,6 @@
 #include "../includes/fractol.h"
 
-void				mandelbrot(t_env *e, t_fractal *f)
+void				burnship(t_env *e, t_fractal *f)
 {
 	f->cr = e->cam.x / e->zoom_x + e->x1;
 	f->ci = e->cam.y / e->zoom_y + e->y1;
@@ -11,7 +11,7 @@ void				mandelbrot(t_env *e, t_fractal *f)
 	{
 		f->tmp = f->zr;
 		f->zr = f->zr * f->zr - f->zi * f->zi + f->cr;
-		f->zi = 2.0 * f->tmp * f->zi + f->ci;
+		f->zi = 2.0 * fabs(f->tmp * f->zi) + f->ci;
 		++f->i;
 	}
 	if (f->i == e->i_max)

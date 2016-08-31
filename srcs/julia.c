@@ -18,6 +18,6 @@ void		julia(t_env *e, t_fractal *f)
 	if (f->i == e->i_max)
 		set_color(e, 0);
 	else
-		set_color(e, (f->i * 255 / e->i_max));
+		set_color(e, (f->i % 256) * 255 / e->i_max);
 	pixel_put_to_image(e, e->cam.x, e->cam.y);
 }

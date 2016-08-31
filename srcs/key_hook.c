@@ -33,7 +33,7 @@ void			select_fractal(t_env *e, t_fractal *f)
 			else if (e->fractal_type == 2)
 				julia(e, f);
 			else if (e->fractal_type == 3)
-				sierpinski_carpet(e, f);
+				burnship(e, f);
 			else
 				ft_usage_error();
 		}
@@ -46,7 +46,6 @@ int				expose_hook(t_env *e)
 
 	if (!(f = (t_fractal *)malloc(sizeof(t_fractal))))
 		ft_msg_error("Memory Allocation failed for fractal !");
-	mlx_clear_window(e->mlx, e->win);
 	init_fractal(e, f);
 	select_fractal(e, f);
 	mlx_put_image_to_window(e->mlx, e->win, e->img.img, 0, 0);
