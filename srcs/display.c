@@ -1,5 +1,4 @@
 #include "../includes/fractol.h"
-#include <stdio.h>
 
 void		pixel_put_to_image(t_env *e, double x, double y)
 {

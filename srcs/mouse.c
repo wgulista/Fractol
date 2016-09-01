@@ -1,5 +1,4 @@
 #include "../includes/fractol.h"
-#include <stdio.h>
 
 int			mouse_hook(int keycode, int x, int y, t_env *e)
 {
