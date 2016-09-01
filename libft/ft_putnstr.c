@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:21:27 by wgulista          #+#    #+#             */
-/*   Updated: 2016/01/01 18:36:33 by wgulista         ###   ########.fr       */
+/*   Created: 2016/06/10 19:26:05 by wgulista          #+#    #+#             */
+/*   Updated: 2016/06/10 19:26:06 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char				*ft_putnstr(const char *str, size_t n)
 {
-	while ((*s1 || *s2) && *s1 == *s2)
+	size_t			len;
+	char			*p;
+
+	if (str != NULL)
 	{
-		s1++;
-		s2++;
+		p = ft_strnew(n);
+		len = ft_strlen(str);
+		len = (len < n) ? len : n;
+		ft_strncpy(p, str, len);
+		return (p);
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return (NULL);
 }

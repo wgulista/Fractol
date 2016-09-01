@@ -12,9 +12,9 @@
 
 #include "includes/libft.h"
 
-static int		ft_len(int n)
+static int		ft_len(long long n)
 {
-	int			i;
+	int	i;
 
 	i = 1;
 	while (n / 10 != 0)
@@ -25,22 +25,22 @@ static int		ft_len(int n)
 	return (i);
 }
 
-static int		ft_issign(int n)
+static int		ft_issign(long long n)
 {
 	return (n < 0);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa_l(long long n)
 {
-	int			i;
-	size_t		sign;
-	char		*new;
+	size_t	i;
+	size_t	sign;
+	char	*new;
 
 	sign = ft_issign(n);
 	i = ft_len(n);
 	new = ft_strnew(sign + i);
-	if (n <= -2147483647)
-		return (ft_strcpy(new, "-2147483648"));
+	if (n <= -9223372036854775807)
+		return (ft_strcpy(new, "-9223372036854775808"));
 	if (sign)
 		n *= -1;
 	if (new)

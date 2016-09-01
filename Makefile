@@ -47,7 +47,7 @@ norme:
 	@echo "\033[33mNorme LIBFT\033[0m"
 	@norminette ./libft/*
 	@echo "\n\033[33mNorme includes/fractal.h\033[0m"
-	@norminette ./includes/fdf.h
+	@norminette ./includes/fractol.h
 	@echo "\n\033[33mNorme sources FRACTOL\033[0m"
 	@norminette ./srcs
 

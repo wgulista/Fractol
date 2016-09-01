@@ -14,8 +14,19 @@
 
 char	*ft_strnew(size_t size)
 {
-	char	*buffer;
+	size_t	i;
+	char	*str;
 
-	buffer = (char *)ft_memalloc(sizeof(char) * (size + 1));
-	return (buffer);
+	i = 0;
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (str)
+	{
+		while (i < size)
+		{
+			str[i] = '\0';
+			i++;
+		}
+		str[i] = '\0';
+	}
+	return (str);
 }

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcase.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:21:27 by wgulista          #+#    #+#             */
-/*   Updated: 2016/01/01 18:36:33 by wgulista         ###   ########.fr       */
+/*   Created: 2015/12/01 13:18:40 by wgulista          #+#    #+#             */
+/*   Updated: 2015/12/03 14:56:11 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int			ft_strcase(char *str, char c)
 {
-	while ((*s1 || *s2) && *s1 == *s2)
+	int		i;
+	int		n;
+
+	i = 0;
+	n = 0;
+	if (str == NULL || c == '\0')
+		return (0);
+	while (str[i] != '\0')
 	{
-		s1++;
-		s2++;
+		if (str[i] == c)
+			n++;
+		i++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return (n);
 }

@@ -1,59 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_base_l.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 18:04:19 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/31 13:43:55 by wgulista         ###   ########.fr       */
+/*   Created: 2016/06/22 15:24:57 by wgulista          #+#    #+#             */
+/*   Updated: 2016/06/22 15:24:59 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static int		ft_len(int n)
+static unsigned long	base_x(uintmax_t nbr)
 {
-	int			i;
+	uintmax_t			temp;
+
+	temp = 0;
+	if (10 <= nbr && nbr <= 16)
+		temp = nbr + ('a' - 10);
+	else if (nbr <= 9)
+		temp = nbr + 48;
+	return (temp);
+}
+
+static int				ft_len(uintmax_t n, int base)
+{
+	int	i;
 
 	i = 1;
-	while (n / 10 != 0)
-	{
-		n /= 10;
+	while (n /= base)
 		i++;
-	}
 	return (i);
 }
 
-static int		ft_issign(int n)
+char					*ft_itoa_base_l(uintmax_t nbr, int base)
 {
-	return (n < 0);
-}
+	uintmax_t			i;
+	char				*new;
 
-char			*ft_itoa(int n)
-{
-	int			i;
-	size_t		sign;
-	char		*new;
-
-	sign = ft_issign(n);
-	i = ft_len(n);
-	new = ft_strnew(sign + i);
-	if (n <= -2147483647)
-		return (ft_strcpy(new, "-2147483648"));
-	if (sign)
-		n *= -1;
+	i = ft_len(nbr, base);
+	new = ft_strnew(i);
 	if (new)
 	{
-		if (n == 0)
+		if (nbr == 0)
 			new[0] = '0';
-		while (n)
+		while (nbr)
 		{
-			new[--i + sign] = (n % 10) + 48;
-			n /= 10;
+			new[--i] = base_x(nbr % base);
+			nbr /= base;
 		}
-		if (sign)
-			new[0] = '-';
 	}
 	return (new);
 }

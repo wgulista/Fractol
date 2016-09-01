@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/01 13:25:06 by wgulista          #+#    #+#             */
+/*   Updated: 2016/09/01 13:25:35 by wgulista         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
 void		check_arg(int ac, char **av)
@@ -9,7 +21,7 @@ void		check_arg(int ac, char **av)
 		ft_usage_error();
 }
 
-int 		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_env	e;
 

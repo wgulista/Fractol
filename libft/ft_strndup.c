@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:21:27 by wgulista          #+#    #+#             */
-/*   Updated: 2016/01/01 18:36:33 by wgulista         ###   ########.fr       */
+/*   Created: 2015/11/24 17:07:13 by wgulista          #+#    #+#             */
+/*   Updated: 2015/12/03 17:55:40 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char			*ft_strndup(char *src, size_t len)
 {
-	while ((*s1 || *s2) && *s1 == *s2)
+	char		*dest;
+	size_t		i;
+
+	i = 0;
+	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dest)
+		return (NULL);
+	while (i < len && src[i])
 	{
-		s1++;
-		s2++;
+		dest[i] = src[i];
+		i++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	dest[i] = '\0';
+	return (dest);
 }

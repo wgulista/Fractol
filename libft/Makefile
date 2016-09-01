@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wgulista <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/12 09:39:48 by wgulista          #+#    #+#              #
-#    Updated: 2016/01/12 10:09:37 by wgulista         ###   ########.fr        #
+#    Updated: 2016/05/17 12:31:37 by wgulista         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,10 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlen.c ft_strmap.c \
 		ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c \
 		ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c \
-		ft_strsub.c ft_strtrim.c ft_swap.c ft_tolower.c ft_toupper.c
+		ft_strsub.c ft_strtrim.c ft_swap.c ft_tolower.c ft_toupper.c \
+		ft_putnchar.c ft_putnstr.c ft_strcase.c ft_itoa_base.c ft_itoa_l.c \
+		ft_itoa_base_l.c ft_itoa_base_u.c ft_itoa_base_lu.c ft_strtoupper.c \
+		ft_strndup.c
 
 OBJET = $(SRC:.c=.o)
 
@@ -38,7 +41,7 @@ $(NAME): $(OBJET)
 		@ranlib $(NAME)
 
 $(OBJET): $(SRC)
-		@gcc $(FLAGS) -I ./inlcudes/$(HEADER) -c $(SRC)
+		@gcc $(FLAGS) -I ./includes/$(HEADER) -c $(SRC)
 
 clean:
 		@rm -f $(OBJET)

@@ -12,20 +12,17 @@
 
 #include "includes/libft.h"
 
-void		*ft_memalloc(size_t size)
+void	*ft_memalloc(size_t size)
 {
-	size_t	i;
-	char	*buffer;
+	void	*new;
 
-	buffer = (char *)malloc(size);
-	if (buffer != NULL)
+	new = (void *)malloc(size);
+	if (new != NULL)
+		ft_memset(new, 0, size);
+	else
 	{
-		i = 0;
-		while (i < size)
-		{
-			buffer[i] = 0;
-			i++;
-		}
+		free(new);
+		new = NULL;
 	}
-	return ((void *)buffer);
+	return (new);
 }

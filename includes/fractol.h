@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/01 13:36:35 by wgulista          #+#    #+#             */
+/*   Updated: 2016/09/01 13:36:37 by wgulista         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # include "../libft/includes/libft.h"
@@ -40,10 +52,9 @@ typedef struct		s_point
 	int				y;
 }					t_point;
 
-
 typedef union		u_color
 {
-	int 			whole;
+	int				whole;
 }					t_color;
 
 typedef struct		s_img
@@ -71,27 +82,26 @@ typedef struct		s_env
 	void			*win;
 	int				fractal_type;
 	int				i;
-	int 			theme;
-	int 			help;
+	int				theme;
+	int				help;
 	double			zoom_x;
 	double			zoom_y;
 	double			mouse_x;
 	double			mouse_y;
 	t_point			cam;
 	t_img			img;
-	t_color			color_rgba;
+	t_color			color_rgb;
 	t_fractal		f;
 	double			x1;
 	double			y1;
 	double			x2;
 	double			y2;
-	int 			i_max;
+	int				i_max;
 }					t_env;
 
-void				ft_usage_error();
+void				ft_usage_error(void);
 void				ft_msg_error(char *msg);
 void				initialize_env(t_env *e, char **av);
-
 void				init_fractal_area(t_env *e);
 void				init_fractal(t_env *e, t_fractal *f);
 void				display_menu(t_env *e);
@@ -100,19 +110,16 @@ int					key_hook(int keycode, t_env *e);
 int					mouse_motion(int x, int y, t_env *e);
 int					mouse_hook(int button, int x, int y, t_env *e);
 int					expose_hook(t_env *e);
-
-void 				move(t_env *e, int keycode);
+void				move(t_env *e, int keycode);
 void				move_pixel_to_left(t_env *e);
 void				move_pixel_to_bottom(t_env *e);
 void				move_pixel_to_right(t_env *e);
 void				move_pixel_to_top(t_env *e);
-
 double				scale_x(t_env *e, double x);
 double				scale_y(t_env *e, double y);
 void				set_color(t_env *e, int color);
-int 				get_color(int i);
+int					get_color(int i);
 void				pixel_put_to_image(t_env *e, double x, double y);
-
 void				burnship(t_env *e, t_fractal *f);
 void				mandelbrot(t_env *e, t_fractal *f);
 void				julia(t_env *e, t_fractal *f);
