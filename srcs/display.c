@@ -5,9 +5,18 @@ void		pixel_put_to_image(t_env *e, double x, double y)
 	int 	pos;
 
 	pos = (x * (e->img.bpp / 8)) + (y * e->img.sline);
-	e->img.data[pos] = e->color_rgba.whole;
-	e->img.data[++pos] = e->color_rgba.whole;
-	e->img.data[++pos] = e->color_rgba.whole;
+	if (e->theme > 0)
+	{
+		e->img.data[pos] = e->color_rgba.whole;
+		e->img.data[++pos] = e->color_rgba.whole >> 8;
+		e->img.data[++pos] = e->color_rgba.whole >> 16;
+	}
+	else
+	{
+		e->img.data[pos] = e->color_rgba.whole >> 16;
+		e->img.data[++pos] = e->color_rgba.whole;
+		e->img.data[++pos] = e->color_rgba.whole >> 8;
+	}
 }
 
 int 		get_color(int i)
@@ -21,6 +30,7 @@ int 		get_color(int i)
 
 void		set_color(t_env *e, int color)
 {
+	e->theme = (e->theme > 2 ? e->theme - 3 : e->theme);
 	e->color_rgba.whole = color + e->theme;
 }
 
