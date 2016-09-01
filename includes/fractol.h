@@ -43,13 +43,7 @@ typedef struct		s_point
 
 typedef union		u_color
 {
-	int				whole;
-	struct
-	{
-		unsigned char	r;
-		unsigned int	g;
-		unsigned int	b;
-	} 			le;
+	int 			whole;
 }					t_color;
 
 typedef struct		s_img

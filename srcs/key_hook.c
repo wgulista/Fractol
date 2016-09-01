@@ -34,8 +34,7 @@ void			select_fractal(t_env *e, t_fractal *f)
 				julia(e, f);
 			else if (e->fractal_type == 3)
 				burnship(e, f);
-			else
-				ft_usage_error();
+			pixel_put_to_image(e, e->cam.x, e->cam.y);
 		}
 	}
 }
@@ -56,10 +55,10 @@ int				expose_hook(t_env *e)
 
 int				key_hook(int keycode, t_env *e)
 {
-	if (keycode == 53)
-		quit_program(e);
-	else if (keycode == H)
+	if (keycode == H)
 		e->help = (e->help) ? 0 : 1;
+	else if (keycode == 13 || keycode == 0 || keycode == 1 || keycode == 2)
+		move(e, keycode);
 	else if (keycode == KEY_1)
 		e->fractal_type = 1;
 	else if (keycode == KEY_2 || keycode == KEY_3)
@@ -67,16 +66,12 @@ int				key_hook(int keycode, t_env *e)
 	else if (keycode == 49)
 	{
 		init_fractal_area(e);
-		e->theme = 0;
-		e->color_rgba.whole = 0;
-		e->mouse_x = 0;
-		e->mouse_y = 0;
 		e->i_max = 50;
 	}
 	else if (keycode == KEY_T)
 		e->theme += 2;
-	else if (keycode == 13 || keycode == 0 || keycode == 1 || keycode == 2)
-		move(e, keycode);
+	else if (keycode == 53)
+		quit_program(e);
 	expose_hook(e);
 	return (0);
 }

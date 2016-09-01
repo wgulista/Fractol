@@ -32,10 +32,10 @@ void 		move(t_env *e, int keycode)
 {
 	if (keycode == 13)
 		move_pixel_to_top(e);
-	else if (keycode == 0)
+	if (keycode == 0)
 		move_pixel_to_left(e);
-	else if (keycode == 1)
+	if (keycode == 1)
 		move_pixel_to_bottom(e);
-	else if (keycode == 2)
+	if (keycode == 2)
 		move_pixel_to_right(e);
 }

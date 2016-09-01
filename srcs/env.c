@@ -14,7 +14,7 @@ int			fractal_type(char **av)
 
 void		init_fractal(t_env *e, t_fractal *f)
 {
-	e->i_max = 100;
+	e->i_max = 50;
 	f->zr = 0.0;
 	f->zi = 0.0;
 	f->cr = 0.0;
@@ -57,7 +57,6 @@ void		initialize_env(t_env *e, char **av)
 	e->win = mlx_new_window(e->mlx, WIDTH, HEIGHT, "Fract'ol - wgulista");
 	e->img.img = mlx_new_image(e->mlx, WIDTH, HEIGHT);
 	e->img.data = mlx_get_data_addr(e->img.img, &e->img.bpp, &e->img.sline, &e->img.endian);
-	e->color_rgba.whole = 0;
 	e->theme = 1;
 	e->help = 0;
 	e->i_max = 50;
@@ -67,6 +66,6 @@ void		initialize_env(t_env *e, char **av)
 	e->y1 = 0.0;
 	e->x2 = 0.0;
 	e->y2 = 0.0;
-	e->i_max = 100;
+	e->i_max = 50;
 	init_fractal_area(e);
 }
