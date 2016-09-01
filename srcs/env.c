@@ -19,8 +19,8 @@ void		init_fractal(t_env *e, t_fractal *f)
 	f->zi = 0.0;
 	f->cr = 0.0;
 	f->ci = 0.0;
-	e->zoom_x = WIDTH / (e->x2 - e->x1);
-	e->zoom_y = HEIGHT / (e->y2 - e->y1);
+	e->zoom_x = WIDTH / (e->x2 - e->x1) / 2;
+	e->zoom_y = HEIGHT / (e->y2 - e->y1) / 2;
 }
 
 void		init_fractal_area(t_env *e)
