@@ -1,4 +1,5 @@
 #include "../includes/fractol.h"
+#include <stdio.h>
 
 void			quit_program(t_env *e)
 {
@@ -47,6 +48,8 @@ int				expose_hook(t_env *e)
 		ft_msg_error("Memory Allocation failed for fractal !");
 	init_fractal(e, f);
 	select_fractal(e, f);
+	printf("%f\n", e->zoom_x);
+	printf("%f\n", e->zoom_y);
 	mlx_put_image_to_window(e->mlx, e->win, e->img.img, 0, 0);
 	display_menu(e);
 	free(f);

@@ -3,29 +3,29 @@
 void		move_pixel_to_left(t_env *e)
 {
 	mlx_clear_window(e->mlx, e->win);
-	e->x1 += 0.1;
-	e->x2 += 0.1;
+	e->x1 += 0.05;
+	e->x2 += 0.05;
 }
 
 void		move_pixel_to_bottom(t_env *e)
 {
 	mlx_clear_window(e->mlx, e->win);
-	e->y1 -= 0.1;
-	e->y2 -= 0.1;
+	e->y1 -= 0.05;
+	e->y2 -= 0.05;
 }
 
 void		move_pixel_to_right(t_env *e)
 {
 	mlx_clear_window(e->mlx, e->win);
-	e->x1 -= 0.1;
-	e->x2 -= 0.1;
+	e->x1 -= 0.05;
+	e->x2 -= 0.05;
 }
 
 void		move_pixel_to_top(t_env *e)
 {
 	mlx_clear_window(e->mlx, e->win);
-	e->y1 += 0.1;
-	e->y2 += 0.1;
+	e->y1 += 0.05;
+	e->y2 += 0.05;
 }
 
 void 		move(t_env *e, int keycode)

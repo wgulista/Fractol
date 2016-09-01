@@ -20,13 +20,16 @@ int			mouse_hook(int keycode, int x, int y, t_env *e)
 	}
 	else if (keycode == MOUSE_CLIC_R || keycode == MOUSE_WHEEL_UP)
 	{
-		e->zoom_x -= 0.5;
-		e->zoom_y -= 0.5;
-		e->x1 = x1 - (e->x2 - e->x1);
-		e->x2 = x1 + (e->x2 - e->x1);
-		e->y1 = y1 - (e->y2 - e->y1);
-		e->y2 = y1 + (e->y2 - e->y1);
-		e->i_max /= 2;
+		if (e->zoom_x > 40 && e->zoom_y > 40)
+		{
+			e->zoom_x -= 0.5;
+			e->zoom_y -= 0.5;
+			e->x1 = x1 - (e->x2 - e->x1);
+			e->x2 = x1 + (e->x2 - e->x1);
+			e->y1 = y1 - (e->y2 - e->y1);
+			e->y2 = y1 + (e->y2 - e->y1);
+			e->i_max /= 2;	
+		}
 	}
 	expose_hook(e);
 	return (0);
