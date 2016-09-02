@@ -73,6 +73,10 @@ int				expose_hook(t_env *e)
 
 int				key_hook(int keycode, t_env *e)
 {
+	if (keycode == 24)
+	{
+		e->i_max *= 2;
+	}
 	if (keycode == H)
 		e->help = (e->help) ? 0 : 1;
 	else if (keycode == 13 || keycode == 0 || keycode == 1 || keycode == 2 || \
@@ -85,7 +89,6 @@ int				key_hook(int keycode, t_env *e)
 	else if (keycode == 49)
 	{
 		init_fractal_area(e);
-		e->i_max = 50;
 	}
 	else if (keycode == KEY_T)
 		e->theme += 2;
