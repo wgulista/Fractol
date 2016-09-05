@@ -97,6 +97,7 @@ typedef struct		s_env
 	double			x2;
 	double			y2;
 	int				i_max;
+	int				pause;
 }					t_env;
 
 void				ft_usage_error(void);

@@ -76,5 +76,6 @@ void		initialize_env(t_env *e, char **av)
 	e->x2 = 0.0;
 	e->y2 = 0.0;
 	e->i_max = 100;
+	e->pause = 0;
 	init_fractal_area(e);
 }

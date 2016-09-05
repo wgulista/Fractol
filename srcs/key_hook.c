@@ -34,6 +34,10 @@ void			display_menu(t_env *e)
 			"T        : Change la couleur");
 		mlx_string_put(e->mlx, e->win, 10, 90, 0xF8F8FF, \
 			"Souris   : Cliquer pour zoomer");
+		mlx_string_put(e->mlx, e->win, 10, 90, 0xF8F8FF, \
+			"P        : Mettre en pause Julia");
+		mlx_string_put(e->mlx, e->win, 10, 90, 0xF8F8FF, \
+			"Espace   : Pour remettre a zero la fractale");
 	}
 }
 
@@ -87,8 +91,15 @@ int				key_hook(int keycode, t_env *e)
 		init_fractal_area(e);
 		e->i_max = 50;
 	}
+	else if (keycode == 35)
+		e->pause = (e->pause == 0) ? 1 : 0;
 	else if (keycode == KEY_T)
 		e->theme += 2;
+	else if (keycode == 24)
+	{
+		mlx_clear_window(e->mlx, e->win);
+		e->i_max *= 10;
+	}
 	else if (keycode == 53)
 		quit_program(e);
 	expose_hook(e);
